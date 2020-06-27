@@ -20,5 +20,10 @@ pipeline{
                 sh 'npm run test:coverage'
             }
         }
+        stage('Run Sonar Analysis'){
+            steps {
+                sh 'npm run sonar'
+            }
+        }
     }
 }
