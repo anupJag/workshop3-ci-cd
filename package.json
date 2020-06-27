@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "sonar": "node sonar-project.js",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [
     "Jenkinsfile",
@@ -26,5 +28,27 @@
     "jest-sonar-reporter": "^2.0.0",
     "sonarqube-scanner": "^2.6.0",
     "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules",
+      "/coverage",
+      "/test"
+    ],
+    "testResultsProcessor": "jest-sonar-reporter",
+    "collectCoverage": false,
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "json",
+      "clover",
+      "cobertura"
+    ]
+  },
+  "jest-sonar": {
+    "reportPath": "coverage",
+    "reportFile": "test-report.xml",
+    "indent": 4
   }
 }
