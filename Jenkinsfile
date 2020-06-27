@@ -17,7 +17,7 @@ pipeline{
         }
         stage('Run Coverage Test'){
             steps {
-                echo 'Coverage test'
+                sh 'npm run test:coverage'
             }
         }
     }
